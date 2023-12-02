@@ -1,0 +1,10 @@
+
+.main{
+    overflow: auto;
+    margin: 50px;
+}
+
+.contianer{
+    padding: 20px;
+    box-sizing: border-box;
+}
