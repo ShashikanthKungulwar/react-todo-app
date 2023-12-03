@@ -1,0 +1,26 @@
+
+.todo{
+    height: 50px;
+    padding: 10px;
+    padding-inline: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todo > span > input[type='checkbox']{
+        position: relative;
+        top: 4px;
+        right: 10px;
+        border: 1px solid rgb(63, 65, 81);
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius:2px;
+        appearance: none;
+        /* color: black; */
+}
+.todo > span > input[type='checkbox']:checked {
+    background-color: rgb(84, 130, 130);
+  }
+.strike{
+    text-decoration: line-through;
+}

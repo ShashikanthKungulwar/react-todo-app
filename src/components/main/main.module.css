@@ -1,10 +1,40 @@
 
 .main{
     overflow: auto;
-    margin: 50px;
+    margin: auto;
+    padding-top: 80px;
+    box-sizing: border-box;
 }
 
-.contianer{
-    padding: 20px;
+.container{
+    padding-block-end: 5%;
+    width: 1000px;
+    padding-inline: 30px;
     box-sizing: border-box;
+}
+
+
+.main > div > input{
+    border-radius: 4px;
+    width:400px;
+    height: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 1px solid rgb(34, 34, 74);
+    outline: none;
+    padding: 5px;
+}
+.main > div > button{
+    outline: none;
+    border: 1px solid rgb(34, 34, 73);
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: rgb(122, 122, 179);
+}
+.main > div > button:active{
+    transform: scale(0.9);
+}
+.main > div > input[type='text']:focus{
+    border-color: aqua;
+
 }
