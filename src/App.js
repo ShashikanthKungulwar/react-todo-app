@@ -43,12 +43,11 @@ function App() {
   function handleEdit(todo) {
     console.log(todo);
     const idx = todos.findIndex(tod => tod.id == todo.id);
-    console.log(idx);
+    
     if (idx >= 0) {
       let new_todos = [...todos];
       new_todos[idx] = todo;
       setTodos(new_todos);
-      console.log(new_todos)
     }
   }
 
