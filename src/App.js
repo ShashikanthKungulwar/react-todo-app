@@ -5,13 +5,18 @@ import Footer from './components/footer/Footer';
 import Main from './components/main/Main';
 import { useState, useEffect } from 'react';
 function App() {
+
+  //todos from the json place holder
   const [todos, setTodos] = useState([]);
+
+  //intially to fetch todos from the json placeholder
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/todos')
       .then(response => response.json())
       .then(json => setTodos([...json.slice(1, 10)]))
   }, [])
 
+  //function to delete the todo
   function handleDelete(index) {
     // setTodos(todos.map())
     const id=todos[index].id;
@@ -21,7 +26,7 @@ function App() {
 
   }
 
-
+  //fucntion to add todo
   function handleAdd(todo) {
     fetch('https://jsonplaceholder.typicode.com/todos', {
       method: 'POST',
@@ -39,7 +44,7 @@ function App() {
   }
 
 
-
+  //function to edit todo
   function handleEdit(todo) {
     console.log(todo);
     const idx = todos.findIndex(tod => tod.id == todo.id);

@@ -3,15 +3,22 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './todo.module.css';
 
 export default function Todo({ todo, handleEdit, handleDelete, index }) {
+    // checked is to indicate the check of the task or todo
+    // isEdit is nothing but enabling edit feature for the title
     const [checked, setChecked] = useState(todo.completed);
     const [isEdit, setIsEdit] = useState(false);
     const titleRef = useRef();
+
     useEffect(() => {
         setChecked(todo.completed);
     }, [todo])
+
+
     function handleTrash() {
         handleDelete(index);
     }
+
+
     function handleTitleEdit() {
         if (todo.id > 200) {
             //as the server dont accept the id above 200 its avoided
@@ -27,7 +34,7 @@ export default function Todo({ todo, handleEdit, handleDelete, index }) {
             method: 'PUT',
             body: JSON.stringify({
                 ...todo,
-                title:titleRef.current.innerText
+                title: titleRef.current.innerText
             }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
@@ -42,6 +49,8 @@ export default function Todo({ todo, handleEdit, handleDelete, index }) {
                 setIsEdit(false)
             });
     }
+
+
     function handleChange(event) {
         if (todo.id > 200) {
             //as the server dont accept the id above 200 its avoided
@@ -74,6 +83,9 @@ export default function Todo({ todo, handleEdit, handleDelete, index }) {
         // setChecked(!checked);
 
     }
+
+
+    
     return (
         <div className={styles.todo}>
             <span>
