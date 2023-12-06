@@ -12,7 +12,12 @@ function App() {
       .then(json => setTodos([...json.slice(1, 10)]))
   }, [])
 
-  function handleDelete() {
+  function handleDelete(index) {
+    // setTodos(todos.map())
+    const id=todos[index].id;
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+      method: 'DELETE',
+    }).then((response)=>{todos.splice(index,1);setTodos([...todos]);});
 
   }
 
@@ -30,18 +35,18 @@ function App() {
       },
     })
       .then((response) => response.json())
-      .then((json) => setTodos([json,...todos]));
+      .then((json) => setTodos([json, ...todos]));
   }
 
 
 
   function handleEdit(todo) {
     console.log(todo);
-    const idx=todos.findIndex(tod=>tod.id==todo.id);
+    const idx = todos.findIndex(tod => tod.id == todo.id);
     console.log(idx);
-    if(idx>=0){
-      let new_todos=[...todos];
-      new_todos[idx]=todo;
+    if (idx >= 0) {
+      let new_todos = [...todos];
+      new_todos[idx] = todo;
       setTodos(new_todos);
       console.log(new_todos)
     }
